@@ -17,10 +17,12 @@
     "autoload": {
         "psr-4": {
             "": "src/"
-        },
-        "files": [
-            "/src/**/functions.php"
-        ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "tests/"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -35,10 +37,5 @@
         "platform": {
             "php": "5.6.33"
         }
-    },
-    "scripts": {
-        "pre-autoload-dump": [
-            "CrystalCode\\Php\\Common\\Composer\\GlobFilesAutoloadExtension::extendAutoload"
-        ]
     }
 }
