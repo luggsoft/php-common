@@ -2,8 +2,8 @@
 
 namespace CrystalCode\Php\Common;
 
-use \Exception;
-use \Throwable;
+use Exception;
+use Throwable;
 
 abstract class ExceptionBase extends Exception
 {
