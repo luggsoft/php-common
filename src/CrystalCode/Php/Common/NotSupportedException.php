@@ -2,10 +2,9 @@
 
 namespace CrystalCode\Php\Common;
 
-use Exception;
 use Throwable;
 
-abstract class ExceptionBase extends Exception
+final class NotSupportedException extends ExceptionBase
 {
 
     /**
@@ -16,7 +15,10 @@ abstract class ExceptionBase extends Exception
      */
     public function __construct(string $message = null, int $code = null, Throwable $previous = null)
     {
-        parent::__construct((string) $message, (int) $code, $previous);
+        if (empty($message)) {
+            $message = 'This operation is not supported';
+        }
+        parent::__construct($message, $code, $previous);
     }
 
 }
