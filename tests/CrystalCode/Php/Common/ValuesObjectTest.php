@@ -56,4 +56,41 @@ class ValuesObjectTest extends TestCase
         $this->assertEquals(['a' => 42, 'b' => 'hello'], $array);
     }
 
+    /**
+     * 
+     * @return void
+     */
+    public function test2(): void
+    {
+        $valuesObject = ValuesObject::create(['a' => 1, 'b' => 2]);
+        $this->assertEquals(1, $valuesObject->a);
+        $this->assertEquals(2, $valuesObject->b);
+        $this->assertNull($valuesObject->c);
+    }
+
+    /**
+     * 
+     * @return void
+     */
+    public function test3(): void
+    {
+        $valuesObject = ValuesObject::create((object) ['a' => 1, 'b' => 2]);
+        $this->assertEquals(1, $valuesObject->a);
+        $this->assertEquals(2, $valuesObject->b);
+        $this->assertNull($valuesObject->c);
+    }
+
+    /**
+     * 
+     * @return void
+     */
+    public function test4(): void
+    {
+        $valuesObject = ValuesObject::create(['a' => 1, 'b' => 2]);
+        $valuesObject = ValuesObject::create($valuesObject);
+        $this->assertEquals(1, $valuesObject->a);
+        $this->assertEquals(2, $valuesObject->b);
+        $this->assertNull($valuesObject->c);
+    }
+
 }

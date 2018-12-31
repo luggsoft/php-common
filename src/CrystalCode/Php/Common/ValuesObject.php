@@ -10,6 +10,30 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
 
     /**
      * 
+     * @param mixed $values
+     * @return ValuesObject
+     * @throws ArgumentException
+     */
+    public static function create($values): ValuesObject
+    {
+        if ($values instanceof ValuesObject) {
+            return $values;
+        }
+
+        if (is_array($values)) {
+            return new ValuesObject($values);
+        }
+
+        if (is_object($values)) {
+            $values = get_object_vars($values);
+            return new ValuesObject($values);
+        }
+
+        throw new ArgumentException('values');
+    }
+
+    /**
+     * 
      * @param array $values
      */
     public function __construct(array $values)
