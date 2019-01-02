@@ -84,6 +84,19 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
 
     /**
      * 
+     * @param string $name
+     * @param mixed $value
+     * @return ValuesObject
+     */
+    public function withValue(string $name, $value): ValuesObject
+    {
+        $clone = clone $this;
+        $clone->setValue($name, $value);
+        return $clone;
+    }
+
+    /**
+     * 
      * {@inheritdoc}
      */
     public function getIterator(): Traversable

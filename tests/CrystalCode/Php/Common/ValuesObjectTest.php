@@ -103,4 +103,20 @@ class ValuesObjectTest extends TestCase
         $this->assertEquals([], $valuesObject->getArray());
     }
 
+    /**
+     * 
+     * @return void
+     */
+    public function test6(): void
+    {
+        $valuesObject1 = ValuesObject::create();
+        $valuesObject1->a = 1;
+        $valuesObject2 = $valuesObject1->withValue('b', 2);
+        $this->assertEquals(1, $valuesObject1->a);
+        $this->assertEquals(1, $valuesObject2->a);
+        $this->assertEquals(2, $valuesObject2->b);
+        $this->assertNull($valuesObject1->b);
+        $this->assertNotSame($valuesObject1, $valuesObject2);
+    }
+
 }
