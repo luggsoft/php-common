@@ -14,7 +14,7 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
      * @return ValuesObject
      * @throws ArgumentException
      */
-    public static function create($values): ValuesObject
+    public static function create($values = []): ValuesObject
     {
         if ($values instanceof ValuesObject) {
             return $values;
@@ -36,7 +36,7 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
      * 
      * @param array $values
      */
-    public function __construct(array $values)
+    public function __construct(array $values = [])
     {
         parent::__construct($values);
     }

@@ -93,4 +93,14 @@ class ValuesObjectTest extends TestCase
         $this->assertNull($valuesObject->c);
     }
 
+    /**
+     * 
+     * @return void
+     */
+    public function test5(): void
+    {
+        $valuesObject = ValuesObject::create();
+        $this->assertEquals([], $valuesObject->getArray());
+    }
+
 }
