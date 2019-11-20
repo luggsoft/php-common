@@ -1,15 +1,15 @@
 <?php
 
-namespace CrystalCode\Php\Common;
+namespace Luggsoft\Php\Common;
 
 use Exception;
 use Throwable;
 
 abstract class ExceptionBase extends Exception
 {
-
+    
     /**
-     * 
+     *
      * @param string $message
      * @param int $code
      * @param Throwable $previous
@@ -18,5 +18,5 @@ abstract class ExceptionBase extends Exception
     {
         parent::__construct((string) $message, (int) $code, $previous);
     }
-
+    
 }

@@ -1,21 +1,21 @@
 <?php
 
-namespace CrystalCode\Php\Common;
+namespace Luggsoft\Php\Common;
 
 use Exception;
 use Throwable;
 
 class OperationException extends Exception
 {
-
+    
     /**
      *
      * @var string
      */
     private $name;
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @param string $message
      * @param int $code
@@ -28,18 +28,18 @@ class OperationException extends Exception
                 $name,
             ]);
         }
-
+        
         parent::__construct($message, $code, $previous);
         $this->name = $name;
     }
-
+    
     /**
-     * 
+     *
      * @return string
      */
     final public function getName(): string
     {
         return $this->name;
     }
-
+    
 }

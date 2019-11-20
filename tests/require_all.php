@@ -10,7 +10,7 @@ call_user_func(function () {
 });
 
 /**
- * 
+ *
  * @param string $root
  * @return iterable
  */

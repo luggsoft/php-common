@@ -1,27 +1,27 @@
 <?php
 
-namespace CrystalCode\Php\Common;
+namespace Luggsoft\Php\Common;
 
 abstract class ValuesObjectBase
 {
-
+    
     /**
      *
      * @var array
      */
     private $values = [];
-
+    
     /**
-     * 
+     *
      * @param array $values
      */
     public function __construct(array $values)
     {
         $this->values = $values;
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @param mixed $default
      * @return mixed
@@ -33,9 +33,9 @@ abstract class ValuesObjectBase
         }
         return $default;
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @param mixed $value
      * @return void
@@ -44,9 +44,9 @@ abstract class ValuesObjectBase
     {
         $this->values[$name] = $value;
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @return bool
      */
@@ -54,9 +54,9 @@ abstract class ValuesObjectBase
     {
         return isset($this->values[$name]);
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @return void
      */
@@ -64,23 +64,23 @@ abstract class ValuesObjectBase
     {
         unset($this->values[$name]);
     }
-
+    
     /**
-     * 
+     *
      * @return array
      */
     final public function getArray(): array
     {
         return (array) $this->values;
     }
-
+    
     /**
-     * 
+     *
      * @return object
      */
     final public function getObject(): object
     {
         return (object) $this->values;
     }
-
+    
 }

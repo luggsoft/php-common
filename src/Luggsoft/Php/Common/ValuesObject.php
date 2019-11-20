@@ -1,15 +1,24 @@
 <?php
 
-namespace CrystalCode\Php\Common;
+namespace Luggsoft\Php\Common;
 
 use IteratorAggregate;
 use Traversable;
 
 final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
 {
-
+    
     /**
-     * 
+     *
+     * @param array $values
+     */
+    public function __construct(array $values = [])
+    {
+        parent::__construct($values);
+    }
+    
+    /**
+     *
      * @param mixed $values
      * @return ValuesObject
      * @throws ArgumentException
@@ -19,30 +28,21 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
         if ($values instanceof ValuesObject) {
             return $values;
         }
-
+        
         if (is_array($values)) {
             return new ValuesObject($values);
         }
-
+        
         if (is_object($values)) {
             $values = get_object_vars($values);
             return new ValuesObject($values);
         }
-
+        
         throw new ArgumentException('values');
     }
-
+    
     /**
-     * 
-     * @param array $values
-     */
-    public function __construct(array $values = [])
-    {
-        parent::__construct($values);
-    }
-
-    /**
-     * 
+     *
      * @param string $name
      * @return mixed
      */
@@ -50,9 +50,9 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
     {
         return $this->getValue($name);
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @param mixed $value
      * @return void
@@ -61,9 +61,9 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
     {
         $this->setValue($name, $value);
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @return bool
      */
@@ -71,9 +71,9 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
     {
         return $this->hasValue($name);
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @return void
      */
@@ -81,9 +81,9 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
     {
         $this->unsetValue($name);
     }
-
+    
     /**
-     * 
+     *
      * @param string $name
      * @param mixed $value
      * @return ValuesObject
@@ -94,9 +94,9 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
         $clone->setValue($name, $value);
         return $clone;
     }
-
+    
     /**
-     * 
+     *
      * {@inheritdoc}
      */
     public function getIterator(): Traversable
@@ -105,5 +105,5 @@ final class ValuesObject extends ValuesObjectBase implements IteratorAggregate
             yield $name => $value;
         }
     }
-
+    
 }

@@ -1,7 +1,8 @@
 {
-    "name": "crystalcode/php-common",
+    "name": "luggsoft/php-common",
+    "description": "Luggsoft / PHP Common",
     "type": "library",
-    "homepage": "https://github.com/crystalcodesoftware/php-common",
+    "homepage": "https://github.com/luggsoft/php-common",
     "license": "MIT",
     "authors": [
         {
